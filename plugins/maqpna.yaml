@@ -1,0 +1,93 @@
+apiVersion: krew.googlecontainertools.github.com/v1alpha2
+kind: Plugin
+metadata:
+  name: maqpna
+spec:
+  version: v2.2.0
+  homepage: https://maqpna.com
+  shortDescription: Govern AI agents with policy, approvals and an audit ledger
+  description: |
+    MAQPNA is a self-hosted runtime for AI agent security and governance.
+    Every tool, model and agent call goes through one gateway that applies
+    default-deny policy, holds risky actions for human approval and records
+    each decision in a hash-chained audit ledger.
+
+    This plugin installs MAQPNA in a cluster with Helm, applies and validates
+    MAQPNA resources (agents, policies, trust tiers), controls sessions, and
+    runs a local MAQPNA with `kubectl maqpna dev up`.
+
+    MAQPNA is commercial, closed-source software by Kosa8 Labs. The Community
+    edition is free for one cluster. Docs: https://docs.maqpna.com
+  platforms:
+  - selector:
+      matchLabels:
+        os: darwin
+        arch: amd64
+    uri: https://github.com/AzmxAI/maqpna-releases/releases/download/v2.2.0/kubectl-maqpna_2.2.0_darwin_amd64.tar.gz
+    sha256: a35c992f8b949ae0b04c1e8f440134a140bbeeadaea71b5a1478324e72adf072
+    files:
+    - from: kubectl-maqpna
+      to: .
+    - from: LICENSE
+      to: .
+    bin: kubectl-maqpna
+  - selector:
+      matchLabels:
+        os: darwin
+        arch: arm64
+    uri: https://github.com/AzmxAI/maqpna-releases/releases/download/v2.2.0/kubectl-maqpna_2.2.0_darwin_arm64.tar.gz
+    sha256: 65b1aa1cf4588d288d6e96e7efa17feafce2406368aa6de2c20a3b96c4667877
+    files:
+    - from: kubectl-maqpna
+      to: .
+    - from: LICENSE
+      to: .
+    bin: kubectl-maqpna
+  - selector:
+      matchLabels:
+        os: linux
+        arch: amd64
+    uri: https://github.com/AzmxAI/maqpna-releases/releases/download/v2.2.0/kubectl-maqpna_2.2.0_linux_amd64.tar.gz
+    sha256: 61cc213109543c9b11e01e2052fef5067bc46e88a052c5dc9f43a79db05e0228
+    files:
+    - from: kubectl-maqpna
+      to: .
+    - from: LICENSE
+      to: .
+    bin: kubectl-maqpna
+  - selector:
+      matchLabels:
+        os: linux
+        arch: arm64
+    uri: https://github.com/AzmxAI/maqpna-releases/releases/download/v2.2.0/kubectl-maqpna_2.2.0_linux_arm64.tar.gz
+    sha256: 532fe1d5102213722233037e08e06f0940df105ab68d5cfe65710c9ee1e40037
+    files:
+    - from: kubectl-maqpna
+      to: .
+    - from: LICENSE
+      to: .
+    bin: kubectl-maqpna
+  - selector:
+      matchLabels:
+        os: windows
+        arch: amd64
+    uri: https://github.com/AzmxAI/maqpna-releases/releases/download/v2.2.0/kubectl-maqpna_2.2.0_windows_amd64.zip
+    sha256: 7f1580d4182d5ce2c9e43de20a7a2f7790832ad8f7a523735291127e37c7b1cc
+    files:
+    - from: kubectl-maqpna.exe
+      to: .
+    - from: LICENSE
+      to: .
+    bin: kubectl-maqpna.exe
+  - selector:
+      matchLabels:
+        os: windows
+        arch: arm64
+    uri: https://github.com/AzmxAI/maqpna-releases/releases/download/v2.2.0/kubectl-maqpna_2.2.0_windows_arm64.zip
+    sha256: d25be6f991a1e762aaa12d2cdc8ace0f738ee5bccf6e55e1c1d2d2e20d13fe22
+    files:
+    - from: kubectl-maqpna.exe
+      to: .
+    - from: LICENSE
+      to: .
+    bin: kubectl-maqpna.exe
